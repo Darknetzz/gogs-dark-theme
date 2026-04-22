@@ -645,6 +645,52 @@ small,
     background-color: var(--dm-bg-raised) !important;
 }
 
+/* "Switch Dashboard Context" — custom `.context.user.overflow.menu` under
+   `.ui.floating.dropdown`, not Semantic's `.menu` class, so generic dropdown
+   active rules never matched; selected row kept default black text. */
+.dashboard .context.user.overflow.menu,
+.dashboard .context.user.menu {
+    background-color: var(--dm-bg-alt) !important;
+    border-color: var(--dm-border) !important;
+}
+
+.dashboard .context.user.overflow.menu > .ui.header,
+.dashboard .context.user.menu > .ui.header {
+    color: var(--dm-text-strong) !important;
+    background: transparent !important;
+}
+
+.dashboard .context.user.overflow.menu .items > .item,
+.dashboard .context.user.overflow.menu .items > a.item,
+.dashboard .context.user.menu .items > .item,
+.dashboard .context.user.menu .items > a.item {
+    color: var(--dm-text) !important;
+}
+
+.dashboard .context.user.overflow.menu .items > .item.active,
+.dashboard .context.user.overflow.menu .items > .item.selected,
+.dashboard .context.user.overflow.menu .items > a.item.active,
+.dashboard .context.user.overflow.menu .items > a.item.selected,
+.dashboard .context.user.overflow.menu .items > a.active.selected.item,
+.dashboard .context.user.menu .items > .item.active,
+.dashboard .context.user.menu .items > a.item.active.selected {
+    background-color: var(--dm-bg-raised) !important;
+    color: var(--dm-text-strong) !important;
+}
+
+.dashboard .context.user.overflow.menu > a.item,
+.dashboard .context.user.menu > a.item {
+    color: var(--dm-text) !important;
+}
+
+.dashboard .ui.floating.dropdown.link.jump > .text {
+    color: var(--dm-text) !important;
+}
+
+.dashboard .ui.floating.dropdown.link.jump > .text .dropdown.icon {
+    color: var(--dm-text-muted) !important;
+}
+
 /* Chrome/Safari autofill: when the browser remembers a username/password
    it paints the input with a hardcoded light-yellow/white background that
    bypasses ordinary `background-color` rules. Only -webkit-box-shadow
