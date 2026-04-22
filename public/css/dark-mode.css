@@ -171,6 +171,24 @@ label {
     color: var(--dm-text) !important;
 }
 
+/* Semantic UI accordion titles (e.g. migrate repo → "Need Authorization") */
+.ui.accordion .title {
+    color: var(--dm-text) !important;
+}
+
+.ui.accordion .title:hover,
+.ui.accordion .title.active {
+    color: var(--dm-text-strong) !important;
+}
+
+.ui.accordion .title .dropdown.icon {
+    color: var(--dm-text-muted) !important;
+}
+
+.ui.accordion .title.text.red {
+    color: var(--dm-danger) !important;
+}
+
 .ui.dropdown .menu {
     background-color: var(--dm-bg-alt) !important;
     border-color: var(--dm-border) !important;
@@ -186,6 +204,37 @@ label {
 .ui.dropdown .menu > .active.item {
     background-color: var(--dm-bg-raised) !important;
     color: var(--dm-text-strong) !important;
+}
+
+/* Avatar / header dropdowns: Semantic UI targets `.menu > .header` with a
+   higher-specificity rule than plain `.ui.header`, so it stayed near-black. */
+.ui.menu .ui.dropdown .menu > .header,
+.ui.dropdown .menu > .ui.header,
+.ui.dropdown .menu > .header {
+    color: var(--dm-text-strong) !important;
+    background: transparent !important;
+}
+
+/* Gogs uses `<div class="divider">` (no `.ui`) between user-menu items. */
+.ui.dropdown .menu > .divider,
+.ui.menu .ui.dropdown .menu > .divider {
+    border-top-color: var(--dm-border) !important;
+    border-bottom: none !important;
+}
+
+.ui.dropdown .menu > .item .octicon,
+.ui.dropdown .menu > .item i.icon:not(.dropdown) {
+    color: var(--dm-text-muted) !important;
+}
+
+.ui.dropdown .menu > .item:hover .octicon,
+.ui.dropdown .menu > .item:hover i.icon:not(.dropdown) {
+    color: var(--dm-text) !important;
+}
+
+.ui.dropdown .menu form.item .submit-button {
+    color: inherit !important;
+    cursor: pointer;
 }
 
 /* --- Buttons ------------------------------------------------------------- */
