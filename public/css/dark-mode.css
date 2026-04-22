@@ -275,6 +275,29 @@ label {
     cursor: pointer;
 }
 
+/* Repo branch/tag dropdown (`templates/repo/branch_dropdown.tmpl`): rows are
+   `<div class="item selected">` inside nested `#branch-list.scrolling.menu`,
+   not direct children of the outer `.menu`, so `> .item` rules above never
+   matched — selected branch text stayed Semantic’s default black. */
+.ui.floating.filter.dropdown .menu .scrolling.menu .item,
+.ui.dropdown .menu .scrolling.menu .item,
+.repository .choose.reference .menu .scrolling.menu .item {
+    color: var(--dm-text) !important;
+}
+
+.ui.floating.filter.dropdown .menu .scrolling.menu .item.selected,
+.ui.dropdown .menu .scrolling.menu .item.selected,
+.repository .choose.reference .menu .scrolling.menu .item.selected {
+    background-color: var(--dm-bg-raised) !important;
+    color: var(--dm-text-strong) !important;
+}
+
+.ui.floating.filter.dropdown .menu .scrolling.menu .item:hover,
+.ui.dropdown .menu .scrolling.menu .item:hover {
+    background-color: var(--dm-bg-raised) !important;
+    color: var(--dm-text-strong) !important;
+}
+
 /* --- Buttons ------------------------------------------------------------- */
 .ui.button {
     background-color: var(--dm-bg-raised) !important;
