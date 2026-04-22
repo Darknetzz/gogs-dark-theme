@@ -506,6 +506,34 @@ footer a {
 }
 
 /* --- Misc --------------------------------------------------------------- */
+/* Semantic text utilities: `.text.black` is literal `#000` with !important in
+   Semantic UI. Gogs uses `<ul class="text black">` on user profile side cards,
+   which makes email / followers lines effectively invisible on dark mode. */
+.text.black,
+.ui.text.black,
+.ui.black.text,
+span.text.black,
+ul.text.black,
+div.text.black {
+    color: var(--dm-text) !important;
+}
+
+.text.black a,
+.ui.text.black a,
+ul.text.black a {
+    color: var(--dm-link) !important;
+}
+
+.text.black a:hover,
+ul.text.black a:hover {
+    color: var(--dm-link-hover) !important;
+}
+
+.text.black .octicon,
+ul.text.black .octicon {
+    color: var(--dm-text-muted) !important;
+}
+
 .text.grey,
 .muted,
 .description,
