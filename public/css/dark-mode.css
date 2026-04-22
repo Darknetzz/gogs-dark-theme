@@ -1,0 +1,888 @@
+/* =========================================================================
+   Gogs Dark Mode
+   Drop-in dark theme injected via custom/templates/inject/head.tmpl.
+   Uses CSS variables so you only need to tweak one place to re-theme.
+   ========================================================================= */
+
+:root {
+    --dm-bg:            #0d1117;   /* page background */
+    --dm-bg-alt:        #161b22;   /* cards, menus, segments */
+    --dm-bg-raised:     #1c2128;   /* hover, active rows, code */
+    --dm-bg-input:      #0d1117;   /* form inputs */
+    --dm-border:        #30363d;
+    --dm-border-strong: #444c56;
+    --dm-text:          #c9d1d9;
+    --dm-text-muted:    #8b949e;
+    --dm-text-strong:   #f0f6fc;
+    --dm-link:          #58a6ff;
+    --dm-link-hover:    #79b8ff;
+    --dm-primary:       #238636;
+    --dm-primary-hover: #2ea043;
+    --dm-danger:        #da3633;
+    --dm-warning:       #d29922;
+    --dm-selection:     #1f6feb55;
+    --dm-shadow:        0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* --- Base ----------------------------------------------------------------- */
+html,
+body,
+.full.height {
+    background-color: var(--dm-bg) !important;
+    color: var(--dm-text) !important;
+}
+
+::selection {
+    background: var(--dm-selection);
+    color: var(--dm-text-strong);
+}
+
+a,
+a:not([class]) {
+    color: var(--dm-link);
+}
+
+a:hover,
+a:not([class]):hover {
+    color: var(--dm-link-hover);
+}
+
+h1, h2, h3, h4, h5, h6,
+.ui.header,
+.ui.sub.header {
+    color: var(--dm-text-strong) !important;
+}
+
+hr,
+.ui.divider:not(.vertical):not(.horizontal) {
+    border-color: var(--dm-border) !important;
+}
+
+/* --- Top navigation ------------------------------------------------------- */
+.following.bar,
+#navbar,
+.ui.menu,
+.ui.secondary.menu,
+.ui.top.attached.menu,
+.ui.tabular.menu {
+    background-color: var(--dm-bg-alt) !important;
+    border-color: var(--dm-border) !important;
+    box-shadow: var(--dm-shadow);
+}
+
+.ui.menu .item,
+.ui.menu a.item,
+.ui.secondary.menu .item,
+.ui.tabular.menu .item {
+    color: var(--dm-text) !important;
+}
+
+.ui.menu .item:hover,
+.ui.menu a.item:hover,
+.ui.menu .active.item,
+.ui.secondary.menu .active.item,
+.ui.tabular.menu .active.item {
+    background-color: var(--dm-bg-raised) !important;
+    color: var(--dm-text-strong) !important;
+    border-color: var(--dm-border-strong) !important;
+}
+
+.ui.menu .dropdown.item .menu {
+    background-color: var(--dm-bg-alt) !important;
+    border-color: var(--dm-border) !important;
+}
+
+.ui.menu .ui.dropdown .menu > .item {
+    color: var(--dm-text) !important;
+}
+
+.ui.menu .ui.dropdown .menu > .item:hover {
+    background-color: var(--dm-bg-raised) !important;
+    color: var(--dm-text-strong) !important;
+}
+
+/* --- Cards, segments, boxes ---------------------------------------------- */
+.ui.segment,
+.ui.segments,
+.ui.segments > .segment,
+.ui.attached.segment,
+.ui.card,
+.ui.cards > .card,
+.ui.list > .item,
+.ui.comments .comment .comment,
+.ui.feed,
+.ui.modal,
+.ui.modal > .header,
+.ui.modal > .content,
+.ui.modal > .actions,
+.ui.popup {
+    background-color: var(--dm-bg-alt) !important;
+    color: var(--dm-text) !important;
+    border-color: var(--dm-border) !important;
+    box-shadow: var(--dm-shadow) !important;
+}
+
+.ui.segment.secondary,
+.ui.secondary.segment {
+    background-color: var(--dm-bg-raised) !important;
+}
+
+/* --- Forms and inputs ---------------------------------------------------- */
+.ui.form input[type="text"],
+.ui.form input[type="password"],
+.ui.form input[type="email"],
+.ui.form input[type="url"],
+.ui.form input[type="search"],
+.ui.form input[type="number"],
+.ui.form textarea,
+.ui.input input,
+.ui.input textarea,
+.ui.selection.dropdown,
+.ui.search > .results,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="number"] {
+    background-color: var(--dm-bg-input) !important;
+    color: var(--dm-text) !important;
+    border-color: var(--dm-border) !important;
+}
+
+.ui.form input:focus,
+.ui.input input:focus,
+.ui.form textarea:focus,
+.ui.selection.dropdown:focus {
+    background-color: var(--dm-bg-input) !important;
+    color: var(--dm-text-strong) !important;
+    border-color: var(--dm-link) !important;
+}
+
+.ui.form ::placeholder,
+::placeholder {
+    color: var(--dm-text-muted) !important;
+}
+
+.ui.form label,
+.ui.form .field > label,
+label {
+    color: var(--dm-text) !important;
+}
+
+.ui.dropdown .menu {
+    background-color: var(--dm-bg-alt) !important;
+    border-color: var(--dm-border) !important;
+}
+
+.ui.dropdown .menu > .item {
+    color: var(--dm-text) !important;
+    border-color: var(--dm-border) !important;
+}
+
+.ui.dropdown .menu > .item:hover,
+.ui.dropdown .menu > .selected.item,
+.ui.dropdown .menu > .active.item {
+    background-color: var(--dm-bg-raised) !important;
+    color: var(--dm-text-strong) !important;
+}
+
+/* --- Buttons ------------------------------------------------------------- */
+.ui.button {
+    background-color: var(--dm-bg-raised) !important;
+    color: var(--dm-text) !important;
+    border: 1px solid var(--dm-border) !important;
+    box-shadow: none !important;
+}
+
+.ui.button:hover {
+    background-color: var(--dm-border) !important;
+    color: var(--dm-text-strong) !important;
+}
+
+.ui.primary.button,
+.ui.green.button,
+.ui.positive.button {
+    background-color: var(--dm-primary) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+}
+
+.ui.primary.button:hover,
+.ui.green.button:hover,
+.ui.positive.button:hover {
+    background-color: var(--dm-primary-hover) !important;
+}
+
+.ui.red.button,
+.ui.negative.button {
+    background-color: var(--dm-danger) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+}
+
+.ui.basic.button {
+    background: transparent !important;
+    color: var(--dm-text) !important;
+    box-shadow: 0 0 0 1px var(--dm-border) inset !important;
+}
+
+.ui.basic.button:hover {
+    background-color: var(--dm-bg-raised) !important;
+    color: var(--dm-text-strong) !important;
+}
+
+/* --- Tables -------------------------------------------------------------- */
+.ui.table {
+    background-color: var(--dm-bg-alt) !important;
+    color: var(--dm-text) !important;
+    border-color: var(--dm-border) !important;
+}
+
+.ui.table thead th,
+.ui.table tfoot th {
+    background-color: var(--dm-bg-raised) !important;
+    color: var(--dm-text-strong) !important;
+    border-color: var(--dm-border) !important;
+}
+
+.ui.table tr,
+.ui.table td {
+    border-color: var(--dm-border) !important;
+}
+
+.ui.table tr:hover {
+    background-color: var(--dm-bg-raised) !important;
+}
+
+/* --- Repository browser -------------------------------------------------- */
+.repository .header-wrapper,
+.repository .navbar,
+.repository.file.list #repo-files-table,
+.repository.file.list #repo-files-table tr,
+.repository.file.list #repo-files-table td,
+.repository .diff-file-box,
+.repository .diff-file-box .header,
+.repository .diff-file-box .file-body,
+.repository .label.list .item,
+.repository.wiki .ui.sub.header {
+    background-color: var(--dm-bg-alt) !important;
+    color: var(--dm-text) !important;
+    border-color: var(--dm-border) !important;
+}
+
+.repository.file.list #repo-files-table tr:hover {
+    background-color: var(--dm-bg-raised) !important;
+}
+
+.repository .diff-file-box .file-body.file-code .lines-num,
+.repository .diff-file-box .file-body.file-code .lines-code {
+    background-color: var(--dm-bg) !important;
+    color: var(--dm-text) !important;
+    border-color: var(--dm-border) !important;
+}
+
+.repository .diff-file-box .file-body .lines-num {
+    color: var(--dm-text-muted) !important;
+}
+
+/* Diff additions / deletions */
+.repository .diff-file-box .file-body.file-code .lines-code .add-code,
+tr.tag-code.add-code,
+td.add-code {
+    background-color: #033a1655 !important;
+}
+
+.repository .diff-file-box .file-body.file-code .lines-code .del-code,
+tr.tag-code.del-code,
+td.del-code {
+    background-color: #67060c55 !important;
+}
+
+/* Issue / PR list */
+.repository.view.issue .comment-list .comment .content,
+.repository.view.issue .comment-list .comment .content > .header,
+.issue.list > .item,
+.ui.comments .comment .content,
+.timeline-item {
+    background-color: var(--dm-bg-alt) !important;
+    color: var(--dm-text) !important;
+    border-color: var(--dm-border) !important;
+}
+
+.repository.view.issue .comment-list .comment .content > .header {
+    background-color: var(--dm-bg-raised) !important;
+}
+
+/* --- Code / markdown ----------------------------------------------------- */
+code,
+pre,
+tt,
+kbd,
+.markdown code,
+.markdown pre,
+.file-view pre,
+.CodeMirror {
+    background-color: var(--dm-bg-raised) !important;
+    color: var(--dm-text) !important;
+    border-color: var(--dm-border) !important;
+}
+
+.markdown blockquote {
+    color: var(--dm-text-muted) !important;
+    border-left-color: var(--dm-border-strong) !important;
+    background-color: transparent !important;
+}
+
+.markdown table tr {
+    background-color: var(--dm-bg-alt) !important;
+    border-color: var(--dm-border) !important;
+}
+
+.markdown table tr:nth-child(2n) {
+    background-color: var(--dm-bg-raised) !important;
+}
+
+/* Syntax highlighting (Chroma default classes).
+   NOTE: `.file-view.code-view` is a COMPOUND selector — it's the same element
+   (not a descendant), so dots are concatenated without a space. */
+.chroma,
+.file-view.code-view {
+    background-color: var(--dm-bg) !important;
+    color: var(--dm-text) !important;
+}
+
+.chroma .k,  .chroma .kd, .chroma .kn, .chroma .kr, .chroma .kt { color: #ff7b72 !important; }
+.chroma .s,  .chroma .s1, .chroma .s2, .chroma .sb, .chroma .sc { color: #a5d6ff !important; }
+.chroma .c,  .chroma .c1, .chroma .cm, .chroma .cp              { color: #8b949e !important; font-style: italic; }
+.chroma .n,  .chroma .nv, .chroma .nx                           { color: var(--dm-text) !important; }
+.chroma .nf, .chroma .nc                                        { color: #d2a8ff !important; }
+.chroma .mi, .chroma .mf, .chroma .mh                           { color: #79c0ff !important; }
+.chroma .o                                                       { color: #ff7b72 !important; }
+.chroma .hl                                                      { background-color: #1f6feb33 !important; }
+
+/* --- Labels / tags / badges --------------------------------------------- */
+.ui.label,
+.ui.labels .label {
+    background-color: var(--dm-bg-raised) !important;
+    color: var(--dm-text) !important;
+    border-color: var(--dm-border) !important;
+}
+
+.ui.basic.label {
+    background: transparent !important;
+}
+
+/* Keep meaningful colors readable on dark */
+.ui.green.label,  .ui.green.labels .label  { background-color: #238636 !important; color: #fff !important; }
+.ui.red.label,    .ui.red.labels .label    { background-color: #da3633 !important; color: #fff !important; }
+.ui.blue.label,   .ui.blue.labels .label   { background-color: #1f6feb !important; color: #fff !important; }
+.ui.yellow.label, .ui.yellow.labels .label { background-color: #d29922 !important; color: #000 !important; }
+.ui.grey.label,   .ui.grey.labels .label   { background-color: #484f58 !important; color: #fff !important; }
+
+/* --- Login / signup page ------------------------------------------------- */
+.signin .ui.message,
+.signup .ui.message,
+.user.activate form,
+.user.forgot.password form,
+.user.reset.password form {
+    background-color: var(--dm-bg-alt) !important;
+    color: var(--dm-text) !important;
+    border-color: var(--dm-border) !important;
+}
+
+/* --- Dashboard feed ------------------------------------------------------ */
+.dashboard.feeds .news .news-item,
+.dashboard.feeds .news .news-item .header,
+.dashboard .news .commit-list,
+.dashboard .news .commit-list li {
+    background-color: var(--dm-bg-alt) !important;
+    color: var(--dm-text) !important;
+    border-color: var(--dm-border) !important;
+}
+
+.dashboard .news .news-item .header,
+.dashboard.feeds .news .news-item .header {
+    color: var(--dm-text-strong) !important;
+}
+
+/* --- Footer -------------------------------------------------------------- */
+footer {
+    background-color: var(--dm-bg-alt) !important;
+    color: var(--dm-text-muted) !important;
+    border-top: 1px solid var(--dm-border) !important;
+}
+
+footer a {
+    color: var(--dm-link) !important;
+}
+
+/* --- Misc --------------------------------------------------------------- */
+.text.grey,
+.muted,
+.description,
+small,
+.ui.text.grey {
+    color: var(--dm-text-muted) !important;
+}
+
+.ui.divider {
+    color: var(--dm-text-muted) !important;
+}
+
+/* Scrollbar (WebKit) */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dm-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--dm-border);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--dm-border-strong);
+}
+
+/* Firefox */
+* {
+    scrollbar-color: var(--dm-border) var(--dm-bg);
+}
+
+/* Tone down images that assume a white background (logos, avatars, emojis
+   are kept fully opaque; only plain <img> inside markdown gets softened). */
+.markdown img:not(.emoji) {
+    background-color: #ffffff10;
+    border-radius: 4px;
+}
+
+/* =========================================================================
+   PATCH 2 — fill-in for elements observed as light/white in the wild.
+   Add new gaps here so the base file above stays easy to reason about.
+   ========================================================================= */
+
+/* Attached headers (Semantic UI `.ui.top|bottom|attached.header`).
+   These wrap segments (e.g. the "Sign In" bar above the login form and
+   the "Your Repositories" header on the dashboard right column). */
+.ui.attached.header,
+.ui.top.attached.header,
+.ui.bottom.attached.header,
+.ui.attached.segment,
+.ui.top.attached.segment,
+.ui.bottom.attached.segment,
+.ui.attached.message,
+.ui.attached.info.message,
+.ui.attached.warning.message,
+.ui.attached.tab.segment,
+.ui.bottom.attached.tab.segment,
+.ui.top.attached.tab.segment,
+.ui.active.tab,
+.ui.active.tab.segment {
+    background-color: var(--dm-bg-alt) !important;
+    color: var(--dm-text-strong) !important;
+    border-color: var(--dm-border) !important;
+    box-shadow: none !important;
+}
+
+/* Header items inside vertical menus (e.g. the "Explore" label on the
+   explore page's sidebar). Semantic UI renders these with a light-gray
+   background by default. */
+.ui.menu .header.item,
+.ui.vertical.menu .header.item,
+.ui.vertical.menu > .header.item,
+.ui.secondary.vertical.menu > .header.item {
+    background-color: var(--dm-bg-raised) !important;
+    color: var(--dm-text-strong) !important;
+    border-color: var(--dm-border) !important;
+}
+
+/* Active items in vertical menus (the currently selected section like
+   "Repositories"). Keep them distinct but still dark. */
+.ui.vertical.menu .active.item,
+.ui.secondary.vertical.menu .active.item {
+    background-color: var(--dm-border) !important;
+    color: var(--dm-text-strong) !important;
+}
+
+/* Dashboard right-sidebar panel + repository lists. The repos list item
+   rows default to a card-like white. */
+.dashboard .filter.menu,
+.dashboard .filter.menu .item,
+.ui.repository.list,
+.ui.repository.list .item,
+.repos.list,
+.repos.list .item,
+.ui.user.list,
+.ui.user.list .item {
+    background-color: var(--dm-bg-alt) !important;
+    color: var(--dm-text) !important;
+    border-color: var(--dm-border) !important;
+}
+
+.ui.repository.list .item:hover,
+.ui.user.list .item:hover {
+    background-color: var(--dm-bg-raised) !important;
+}
+
+/* Chrome/Safari autofill: when the browser remembers a username/password
+   it paints the input with a hardcoded light-yellow/white background that
+   bypasses ordinary `background-color` rules. Only -webkit-box-shadow
+   (large inset) can override it. */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px var(--dm-bg-input) inset !important;
+    -webkit-text-fill-color: var(--dm-text) !important;
+    caret-color: var(--dm-text) !important;
+    border-color: var(--dm-border) !important;
+    transition: background-color 99999s ease-in-out 0s !important;
+}
+
+/* Footer: the default stylesheet uses muted greys that get lost on a
+   dark background. Bump contrast and keep link accents. */
+footer,
+footer .ui.container,
+footer .ui.left,
+footer .ui.right,
+footer .ui.right.links {
+    background-color: var(--dm-bg-alt) !important;
+    color: var(--dm-text-muted) !important;
+    border-top: 1px solid var(--dm-border) !important;
+}
+
+footer * {
+    color: inherit !important;
+}
+
+footer strong,
+footer b {
+    color: var(--dm-text) !important;
+}
+
+footer a,
+footer a:hover,
+footer .ui.right.links a {
+    color: var(--dm-link) !important;
+}
+
+/* Language selector dropdown (the globe icon link in the footer). */
+.ui.language.dropdown,
+.ui.language.dropdown .menu {
+    background-color: var(--dm-bg-alt) !important;
+    color: var(--dm-text) !important;
+    border-color: var(--dm-border) !important;
+}
+
+.ui.language.dropdown .menu > .item:hover {
+    background-color: var(--dm-bg-raised) !important;
+    color: var(--dm-text-strong) !important;
+}
+
+/* Following bar (top navbar). The `.light` variant used by Gogs wasn't
+   caught by the earlier rule. */
+.following.bar.light {
+    background-color: var(--dm-bg-alt) !important;
+    border-color: var(--dm-border) !important;
+}
+
+/* Empty-state placeholders (e.g. "You have no repositories yet"). */
+.ui.placeholder,
+.ui.placeholder .header,
+.ui.placeholder.segment {
+    background-color: var(--dm-bg-alt) !important;
+    color: var(--dm-text) !important;
+    border-color: var(--dm-border) !important;
+}
+
+/* Catch-all for bare <input> without a `type` attribute. Gogs renders the
+   login username field as `<input id="user_name" name="user_name" required>`
+   (no type), which defaults to "text" in browsers but is NOT matched by the
+   `input[type="text"]` selector. Same pattern may appear in other forms. */
+.ui.form input:not([type]),
+.ui.input input:not([type]),
+input:not([type]) {
+    background-color: var(--dm-bg-input) !important;
+    color: var(--dm-text) !important;
+    border-color: var(--dm-border) !important;
+}
+
+.ui.form input:not([type]):focus,
+.ui.input input:not([type]):focus,
+input:not([type]):focus {
+    background-color: var(--dm-bg-input) !important;
+    color: var(--dm-text-strong) !important;
+    border-color: var(--dm-link) !important;
+}
+
+/* =========================================================================
+   Patch 3: full-site coverage (per-page inspection)
+   ========================================================================= */
+
+/* --- Basic-buttons group --------------------------------------------------
+   Semantic UI ships `.ui.basic.buttons .button` (specificity 0,4,0 with
+   !important) which beats our `.ui.basic.button` (0,3,0) rule. That made
+   the "0 Closed" button on /issues render as invisible dark-on-dark. We
+   mirror the same compound selector here so the cascade tie goes to us. */
+.ui.basic.buttons .button,
+.ui.buttons .basic.button,
+.ui.tiny.basic.buttons .button,
+.ui.small.basic.buttons .button,
+.ui.large.basic.buttons .button {
+    background: transparent !important;
+    color: var(--dm-text) !important;
+    box-shadow: 0 0 0 1px var(--dm-border) inset !important;
+}
+
+.ui.basic.buttons .button:hover,
+.ui.buttons .basic.button:hover {
+    background-color: var(--dm-bg-raised) !important;
+    color: var(--dm-text-strong) !important;
+}
+
+.ui.basic.buttons .active.button,
+.ui.buttons .active.basic.button {
+    background-color: var(--dm-bg-raised) !important;
+    color: var(--dm-text-strong) !important;
+}
+
+/* Colored basic buttons in a group (e.g. the green "0 Open" counter).
+   Keep the chromatic tint, just make sure inactive states still read. */
+.ui.basic.buttons .green.button,
+.ui.buttons .green.basic.button {
+    color: #3fb950 !important;
+    box-shadow: 0 0 0 1px #238636 inset !important;
+}
+
+.ui.basic.buttons .red.button,
+.ui.buttons .red.basic.button {
+    color: #f85149 !important;
+    box-shadow: 0 0 0 1px #da3633 inset !important;
+}
+
+/* --- Source-file code view ------------------------------------------------
+   Google Code Prettify (`ol.linenums`) renders with a hard-coded white
+   background in its stylesheet. Gogs' file view (hello.py etc.) uses it,
+   so we force the dark palette on the <ol>, its <li>s, and each prettify
+   token class. */
+.file-view.code-view pre,
+.file-view.code-view ol.linenums,
+.file-view.code-view .lines-code,
+.file-view.code-view .lines-code pre,
+.file-view.code-view .lines-code code {
+    background-color: var(--dm-bg) !important;
+    color: var(--dm-text) !important;
+    border-color: var(--dm-border) !important;
+}
+
+.file-view.code-view .lines-num,
+.file-view.code-view .lines-num span {
+    background-color: var(--dm-bg-alt) !important;
+    color: var(--dm-text-muted) !important;
+    border-color: var(--dm-border) !important;
+}
+
+ol.linenums,
+ol.linenums li {
+    background-color: transparent !important;
+    color: var(--dm-text) !important;
+    border-color: var(--dm-border) !important;
+}
+
+ol.linenums li:nth-child(2n) {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* highlight.js (v9.18) runs client-side over `<code class="language-*">` and
+   `<code class="py">` blocks. Gogs ships its github.css theme AFTER ours, so
+   we override each `.hljs-*` token with a GitHub-dark palette. */
+.hljs,
+pre code.hljs {
+    background: transparent !important;
+    color: var(--dm-text) !important;
+}
+
+.hljs-comment,
+.hljs-quote                         { color: #8b949e !important; font-style: italic; }
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst                         { color: #ff7b72 !important; font-weight: 600; }
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr                { color: #79c0ff !important; }
+
+.hljs-string,
+.hljs-doctag                        { color: #a5d6ff !important; }
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id,
+.hljs-function                      { color: #d2a8ff !important; }
+
+.hljs-type,
+.hljs-class .hljs-title,
+.hljs-tag,
+.hljs-name,
+.hljs-attribute                     { color: #7ee787 !important; }
+
+.hljs-regexp,
+.hljs-link                          { color: #a5d6ff !important; }
+
+.hljs-symbol,
+.hljs-bullet                        { color: #ffa657 !important; }
+
+.hljs-built_in,
+.hljs-builtin-name                  { color: #79c0ff !important; }
+
+.hljs-meta                          { color: #8b949e !important; }
+
+.hljs-deletion                      { background-color: rgba(248, 81, 73, 0.15) !important; }
+.hljs-addition                      { background-color: rgba(46, 160, 67, 0.15) !important; }
+.hljs-emphasis                      { font-style: italic; }
+.hljs-strong                        { font-weight: 700; }
+
+/* Prettify fallback (kept for Gogs versions that still use it). */
+.prettyprint .pln                   { color: var(--dm-text) !important; }
+.prettyprint .str,
+.prettyprint .atv                   { color: #a5d6ff !important; }
+.prettyprint .kwd,
+.prettyprint .tag                   { color: #ff7b72 !important; }
+.prettyprint .com                   { color: #8b949e !important; font-style: italic; }
+.prettyprint .typ,
+.prettyprint .atn,
+.prettyprint .dec,
+.prettyprint .var                   { color: #d2a8ff !important; }
+.prettyprint .lit                   { color: #79c0ff !important; }
+.prettyprint .pun,
+.prettyprint .opn,
+.prettyprint .clo                   { color: var(--dm-text-muted) !important; }
+.prettyprint .fun                   { color: #d2a8ff !important; }
+
+/* --- Markdown tables ------------------------------------------------------
+   Gogs ships `table th { border:1px solid #ddd !important }` and
+   `tr { border-top:1px solid #ccc }` for markdown — the light borders made
+   data rows look white even when our bg rule was applied. */
+.markdown:not(code) table,
+.markdown:not(code) table th,
+.markdown:not(code) table td {
+    border-color: var(--dm-border) !important;
+    color: var(--dm-text) !important;
+}
+
+.markdown:not(code) table th {
+    background-color: var(--dm-bg-raised) !important;
+}
+
+.markdown:not(code) table tr {
+    background-color: var(--dm-bg-alt) !important;
+    border-top-color: var(--dm-border) !important;
+}
+
+.markdown:not(code) table tr:nth-child(2n) {
+    background-color: var(--dm-bg-raised) !important;
+}
+
+/* --- Native form controls in markdown -------------------------------------
+   Markdown task lists render as real <input type="checkbox"> nodes; we
+   tint them so they're visible on dark (browsers fall back to system UI
+   when `accent-color` is supported, otherwise they stay bluish default). */
+.markdown input[type="checkbox"],
+.markdown input[type="radio"],
+input[type="checkbox"],
+input[type="radio"] {
+    accent-color: var(--dm-primary) !important;
+}
+
+/* File-picker button (avatar upload on repo/user settings). Chromium
+   exposes `::file-selector-button` for the trigger; older/Safari uses
+   `::-webkit-file-upload-button`. */
+input[type="file"] {
+    color: var(--dm-text) !important;
+    background-color: transparent !important;
+    border: 1px solid var(--dm-border) !important;
+    border-radius: 4px !important;
+    padding: 4px !important;
+}
+
+input[type="file"]::file-selector-button,
+input[type="file"]::-webkit-file-upload-button {
+    background-color: var(--dm-bg-raised) !important;
+    color: var(--dm-text) !important;
+    border: 1px solid var(--dm-border) !important;
+    border-radius: 3px !important;
+    padding: 4px 10px !important;
+    margin-right: 8px !important;
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:hover,
+input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: var(--dm-border) !important;
+    color: var(--dm-text-strong) !important;
+}
+
+/* --- Diff view polish ----------------------------------------------------
+   Gogs' diff classes (`tr.del-code td`, `tr.add-code td`, `tr.tag-code td`)
+   use `!important` with light hex colors; we override with translucent
+   tints that blend into the dark gutter. */
+.repository .diff-file-box .code-diff tbody tr.tag-code td,
+tr.tag-code td,
+td.tag-code {
+    background-color: var(--dm-bg-alt) !important;
+    color: var(--dm-text-muted) !important;
+    border-color: var(--dm-border) !important;
+}
+
+.repository .diff-file-box .code-diff tbody tr.add-code td,
+.repository .diff-file-box .code-diff tbody tr.add-code td pre,
+tr.add-code td,
+td.add-code {
+    background-color: rgba(46, 160, 67, 0.15) !important;
+    border-color: rgba(46, 160, 67, 0.35) !important;
+}
+
+.repository .diff-file-box .code-diff tbody tr.del-code td,
+.repository .diff-file-box .code-diff tbody tr.del-code td pre,
+tr.del-code td,
+td.del-code {
+    background-color: rgba(248, 81, 73, 0.15) !important;
+    border-color: rgba(248, 81, 73, 0.35) !important;
+}
+
+.repository .diff-file-box .code-diff tbody tr.same-code td.active,
+tr.same-code td.active {
+    background-color: rgba(187, 128, 9, 0.25) !important;
+}
+
+/* --- Commit-list & repo-files tables -------------------------------------
+   Gogs paints `#repo-files-table tr:hover { background-color:#ffe }` —
+   very bright on dark. Also #commits-table striping uses rgba black. */
+.repository.file.list #repo-files-table tr:hover,
+#repo-files-table tr:hover {
+    background-color: var(--dm-bg-raised) !important;
+}
+
+.repository #commits-table.ui.basic.striped.table tbody tr:nth-child(2n),
+#commits-table tbody tr:nth-child(2n) {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* --- Horizontal rules in markdown ----------------------------------------
+   GitHub markdown renders <hr> with a light border; force dark. */
+.markdown hr {
+    background-color: var(--dm-border) !important;
+    border: 0 !important;
+    height: 1px !important;
+}

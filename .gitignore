@@ -1,0 +1,20 @@
+# Editor / OS cruft
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Anything Gogs would drop into a real `custom/` dir at runtime that should
+# not be versioned (avatars, repo-avatars, session files, SSH host keys, etc.)
+# This keeps the repo safe if someone clones it directly over a live
+# `custom/` folder and then pushes back.
+/conf/app.ini
+/data/
+/log/
+/avatars/
+/repo-avatars/
+/sessions/
+/ssh/
