@@ -101,6 +101,44 @@ hr,
     color: var(--dm-text-strong) !important;
 }
 
+/* Active item: Semantic UI uses longer selectors (e.g. `.ui.tabular.menu
+   .active.item`, `.ui.menu .ui.dropdown .menu > .active.item`) that win the
+   cascade over our shorter `.ui.menu .active.item` despite `!important` on
+   ties in some builds, and default active styling is near-white background +
+   black text → invisible on dark. */
+.repository .navbar.ui.tabular.menu > .item.active,
+.repository .navbar.ui.tabular.menu > .active.item,
+.repository .navbar.ui.tabular.menu a.item.active,
+.ui.tabular.menu.navbar .item.active,
+.ui.tabular.menu.navbar .active.item,
+.ui.tabular.menu .item.active,
+.ui.tabular.menu .active.item,
+.ui.secondary.pointing.menu .item.active,
+.ui.secondary.pointing.menu .active.item {
+    background-color: var(--dm-bg-raised) !important;
+    color: var(--dm-text-strong) !important;
+    border-color: var(--dm-border-strong) !important;
+}
+
+.repository .navbar.ui.tabular.menu > .item.active,
+.repository .navbar.ui.tabular.menu > .active.item {
+    border-bottom-color: var(--dm-link) !important;
+}
+
+.ui.menu .ui.dropdown .menu > .item.active,
+.ui.menu .ui.dropdown .menu > .active.item,
+.ui.menu .ui.dropdown .menu > a.item.active,
+.ui.menu .ui.dropdown .menu > a.active.item {
+    background-color: var(--dm-bg-raised) !important;
+    color: var(--dm-text-strong) !important;
+}
+
+.ui.menu .ui.dropdown .menu > .item.active .octicon,
+.ui.menu .ui.dropdown .menu > .active.item .octicon,
+.ui.menu .ui.dropdown .menu > a.active.item .octicon {
+    color: var(--dm-text-strong) !important;
+}
+
 /* --- Cards, segments, boxes ---------------------------------------------- */
 .ui.segment,
 .ui.segments,
